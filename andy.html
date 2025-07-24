@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy & Alexis Yap Counter</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .counter-container {
+      background: linear-gradient(90deg, #ff6a00, #ee0979, #ff6a00);
+      padding: 3rem 4rem;
+      border-radius: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+    .counter-label {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #f7971e, #ffd200, #f7971e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .counter-value {
+      font-size: 4rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #43cea2, #185a9d, #43cea2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <div class="counter-label">Times Andy and Alexis have yapped</div>
+    <div class="counter-value" id="yapCounter">1,300,000</div>
+    <div class="counter-label" style="margin-top:2.5rem;">Time Wasted While Yapping</div>
+    <div class="counter-value" id="wastedTime" style="font-size:2rem;">451,000:00:00</div>
+  </div>
+  <script>
+    let count = 1300000;
+    const counter = document.getElementById('yapCounter');
+    const wastedTime = document.getElementById('wastedTime');
+    // Each yap = 30 seconds
+    function formatTime(seconds) {
+      // Approximate a month as 30 days
+      const months = Math.floor(seconds / (30 * 24 * 60 * 60));
+      return `${months} month${months !== 1 ? 's' : ''}`;
+    }
+    let totalSeconds = count * 30;
+    setInterval(() => {
+      // Increase by a random value between 3 and 8 for a lively effect
+      const increment = Math.floor(Math.random() * 6) + 3;
+      count += increment;
+      counter.textContent = count.toLocaleString();
+      totalSeconds += increment * 30;
+      wastedTime.textContent = formatTime(totalSeconds);
+    }, 30);
+  </script>
+</body>
+</html>
