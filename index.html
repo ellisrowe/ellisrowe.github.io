@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CHASE Lead Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-12 rounded-2xl shadow-2xl w-full max-w-lg">
+    <div class="flex items-center justify-center mb-10 gap-4 flex-wrap">
+      <h1 class="text-4xl font-extrabold text-center text-blue-700 tracking-tight">CHASE Lead Form</h1>
+      <img src="https://www.pikpng.com/pngl/m/589-5899318_solar-panel-svg-png-icon-free-download-illustration.png" alt="Solar Panel" class="w-14 h-14" style="min-width:3rem;min-height:3rem;" />
+    </div>
+    <form id="leadForm" action="https://michaeleads.leadspediatrack.com/post.do" method="POST" target="_blank" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Required hidden fields -->
+      <input type="hidden" name="lp_campaign_id" value="6800fe2f65c9e">
+      <input type="hidden" name="lp_campaign_key" value="8cJC4BXFjgwzdkGxntMT">
+      <input type="hidden" name="lp_response" value="json">
+      <input type="hidden" name="full_name" id="full_name_hidden">
+
+      <div class="col-span-1 md:col-span-2">
+        <label class="block text-gray-700 font-semibold mb-2 text-lg">Full Name</label>
+        <input type="text" id="full_name_input" required class="w-full px-4 py-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Full Name" />
+      </div>
+      <div class="col-span-1">
+        <label class="block text-gray-700 font-semibold mb-2 text-lg">Phone</label>
+        <input type="tel" name="phone_home" required class="w-full px-4 py-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+      <div class="col-span-1">
+        <label class="block text-gray-700 font-semibold mb-2 text-lg">Email</label>
+        <input type="email" name="email_address" required class="w-full px-4 py-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+      <div class="col-span-1">
+        <label class="block text-gray-700 font-semibold mb-2 text-lg">State</label>
+        <input type="text" name="state" maxlength="2" required class="w-full px-4 py-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 uppercase" />
+      </div>
+      <div class="col-span-1">
+        <label class="block text-gray-700 font-semibold mb-2 text-lg">Zip Code</label>
+        <input type="text" name="zip_code" maxlength="10" required class="w-full px-4 py-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+      <div class="col-span-1">
+        <label class="block text-gray-700 font-semibold mb-2 text-lg">Flight Risk</label>
+        <select name="flightRisk" required class="w-full px-4 py-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <option value="">Select...</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+      <div class="col-span-1">
+        <label class="block text-gray-700 font-semibold mb-2 text-lg">Dangerous To Society</label>
+        <select name="dangerousToSociety" required class="w-full px-4 py-3 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <option value="">Select...</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+      <div class="col-span-1 md:col-span-2">
+        <button type="submit" class="w-full bg-blue-600 text-white font-bold text-xl py-3 rounded-lg hover:bg-blue-700 transition">Submit Lead</button>
+      </div>
+    </form>
+    <script>
+      document.getElementById('leadForm').addEventListener('submit', function(e) {
+        var fullName = document.getElementById('full_name_input').value;
+        document.getElementById('full_name_hidden').value = fullName;
+      });
+    </script>
+  </div>
+</body>
+</html>
